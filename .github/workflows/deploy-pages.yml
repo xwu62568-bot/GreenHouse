@@ -42,7 +42,7 @@ jobs:
         working-directory: APP
         env:
           VITE_DEPLOY_TARGET: github-pages
-          VITE_BASE_PATH: /IOTPJ/
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/
         run: npm run build
 
       - name: Install iot-unified-saas dependencies
@@ -53,7 +53,7 @@ jobs:
         working-directory: iot-unified-saas
         env:
           VITE_DEPLOY_TARGET: github-pages
-          VITE_BASE_PATH: /IOTPJ/saas/
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/saas/
         run: npm run build
 
       - name: Copy SaaS build into Pages bundle
